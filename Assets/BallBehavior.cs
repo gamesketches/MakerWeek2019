@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class BallBehavior : MonoBehaviour
 {
@@ -8,16 +9,19 @@ public class BallBehavior : MonoBehaviour
 	public float movementSpeed;
 	public Rect gameBox;
 	bool moving;
+	public TextMeshPro counter;
+	float currentPower;
 
     // Start is called before the first frame update
     void Start()
     {
+		currentPower = 0.5f;
         moving = false;
 		gameBox.y = transform.position.y + gameBox.height;
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
 		if(moving) {
 			float nextStepX = transform.position.x + velocity.x;
@@ -43,5 +47,22 @@ public class BallBehavior : MonoBehaviour
 
 	void OnCollisionEnter2D(Collision2D other) {
 		velocity.y *= -1;
+		SquareBehavior block = other.gameObject.GetComponent<SquareBehavior>();
+		if(block.squareValue < currentPower) {
+			StartCoroutine(HitStop());
+			ScreenShake.shakeTime = 0.3f;
+			currentPower += block.squareValue;
+			Destroy(block.gameObject);
+		}
+		counter.text = "x " + currentPower;
+	}
+
+	IEnumerator HitStop() {
+		float startTime = Time.realtimeSinceStartup;
+		Time.timeScale = 0;
+		while(Time.realtimeSinceStartup - startTime <0.045f) {
+			yield return null;
+		}
+		Time.timeScale = 1;
 	}
 }

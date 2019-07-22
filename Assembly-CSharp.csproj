@@ -53,10 +53,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\BallBehavior.cs" />
-     <Compile Include="Assets\GridManager.cs" />
-     <Compile Include="Assets\ScreenShake.cs" />
-     <Compile Include="Assets\SquareBehavior.cs" />
+     <Compile Include="Assets\Scripts\BallBehavior.cs" />
+     <Compile Include="Assets\Scripts\GridManager.cs" />
+     <Compile Include="Assets\Scripts\ScreenShake.cs" />
+     <Compile Include="Assets\Scripts\SquareBehavior.cs" />
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface-Mobile.shader" />
      <None Include="Assets\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro_Properties.cginc" />

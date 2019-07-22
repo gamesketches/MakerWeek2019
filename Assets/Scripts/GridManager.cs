@@ -31,7 +31,7 @@ public class GridManager : MonoBehaviour
 			GameObject[] tempRow = new GameObject[data.Length];
 			for(int i = 0; i < data.Length; i++) {
 				temp = Instantiate(cell);
-				temp.transform.position = new Vector3(2 * i, 2 * numRows, 0);
+				temp.transform.position = new Vector3(-3 + 4.5f * i, 3 * numRows, 0);
 				temp.GetComponent<SquareBehavior>().ChangeColor(float.Parse(data[i]));
 				temp.GetComponentInChildren<TextMeshPro>().text = data[i];
 				tempRow[i] = temp;
@@ -41,7 +41,7 @@ public class GridManager : MonoBehaviour
 		}
 		for(int j = 0; j < numRows; j++) {
         	temp = Instantiate(yearPrefab);
-			temp.transform.position = new Vector3(-2, 2 * j, 0);
+			temp.transform.position = new Vector3(-9, 3 * j, 0);
 			temp.GetComponent<TextMeshPro>().text = (1962 +j).ToString();
 			yearColumn.Add(temp);
 		}

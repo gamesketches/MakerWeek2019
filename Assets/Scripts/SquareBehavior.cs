@@ -6,8 +6,8 @@ public class SquareBehavior : MonoBehaviour
 {
 	SpriteRenderer spriteRenderer;
 	public float squareValue;
-	public static Color emptyColor = new Color(0,0,0);
-	public static Color fullColor = new Color(241f/255f,84f/255f,64f/255f);
+	public static Color fullColor = new Color(194f/255f,45f/255f,37f/255f);
+	public static Color emptyColor = new Color(250f/255f,175f/255f,27f/255f);
 
     // Start is called before the first frame update
     void Awake()
